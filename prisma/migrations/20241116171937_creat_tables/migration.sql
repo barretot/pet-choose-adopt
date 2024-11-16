@@ -17,7 +17,7 @@ CREATE TABLE "users" (
 CREATE TABLE "pets" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "type" "PetType" NOT NULL,
+    "type" TEXT NOT NULL,
     "image" TEXT,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

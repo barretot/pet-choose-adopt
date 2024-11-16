@@ -6,9 +6,19 @@ POST {{baseUrl}}/user
 Content-Type: application/json
 
 {
-  "name": "John Doe",
-  "email": "john@doe.com",
+  "name": "John Doe243sad44",
+  "email": "john@doe24asd2343.com",
   "password": "passwordTest123"
+}
+
+###
+# @name create_pet
+POST {{baseUrl}}/pet
+Content-Type: application/json
+
+{
+  "name": "John Doe dog",
+  "type": "sapo23"
 }
 
 ###
