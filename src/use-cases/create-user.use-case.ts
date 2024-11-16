@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 
-import { CryptographyAdapter } from '@/adapters/cryptography/cryptograpy-adapter'
+import { CryptographyAdapter } from '@/adapters/cryptography/cryptography-adapter'
 import { User } from '@/domain/entities/User'
 import { UserRepository } from '@/domain/repositories/UserRepository'
 

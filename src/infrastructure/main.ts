@@ -7,6 +7,7 @@ import {
 } from '@nestjs/platform-fastify'
 
 import { AppModule } from './app.module'
+import { Env } from './env/env'
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -15,8 +16,11 @@ async function bootstrap() {
   )
 
   app.useGlobalPipes(new ValidationPipe())
-  const configService = app.get(ConfigService)
 
-  await app.listen(configService.get('port'))
+  const configService = app.get<ConfigService<Env, true>>(ConfigService)
+
+  const port = configService.get('PORT', { infer: true })
+
+  await app.listen(port)
 }
 bootstrap()
