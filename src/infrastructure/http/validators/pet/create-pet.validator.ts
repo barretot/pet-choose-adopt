@@ -1,4 +1,4 @@
-import { IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator'
+import { IsEnum, IsNotEmpty, IsString } from 'class-validator'
 
 import { PetType } from '@/domain/enums/pet-type.enum'
 
@@ -9,8 +9,4 @@ export class CreatePetValidator {
 
   @IsEnum(PetType, { message: 'Type only cat or dog' })
   type!: string
-
-  @IsString()
-  @IsOptional()
-  image?: string
 }

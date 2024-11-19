@@ -6,7 +6,8 @@ export default defineConfig({
   test: {
     globals: true,
     root: './',
-    include: ['src/**/*.test.ts', 'src/**/*.spec.ts']
+    include: ['src/**/*.test.ts', 'src/**/*.spec.ts'],
+    exclude: ['dist', '**/dist/**', '**/vitest.config.*', '**/test/**']
   },
   plugins: [
     tsconfigPaths(),

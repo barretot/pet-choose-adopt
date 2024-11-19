@@ -1,6 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
 
 import { CryptographyAdapter } from '@/adapters/cryptography/cryptography-adapter'
+import { User } from '@/domain/entities/user/User'
 import { UserRepository } from '@/domain/repositories/user/UserRepository'
 
 @Injectable()
@@ -18,7 +19,7 @@ export class CreateUserUseCase {
     name: string
     email: string
     password: string
-  }): Promise<void> {
+  }): Promise<{ user: User }> {
     const userAlreadyExists = await this.userRepository.findByEmail(email)
 
     if (userAlreadyExists) {
@@ -27,12 +28,14 @@ export class CreateUserUseCase {
 
     const hash = await this.cryptography.hash(password)
 
-    const user = await this.userRepository.create({
+    const user = User.create({
       name,
       email,
       password: hash,
     })
 
-    return user
+    await this.userRepository.create({ ...user })
+
+    return { user }
   }
 }

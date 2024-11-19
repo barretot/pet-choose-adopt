@@ -22,7 +22,6 @@ export class HttpExceptionFilter implements ExceptionFilter {
 
     const errorResponse = {
       statusCode: status,
-      timestamp: new Date().toISOString(),
       path: request.url,
       ...errorDetails,
     }

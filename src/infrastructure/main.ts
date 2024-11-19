@@ -5,6 +5,7 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify'
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 
 import { AppModule } from './app.module'
 import { Env } from './env/env'
@@ -20,6 +21,17 @@ async function bootstrap() {
   app.useGlobalFilters(new HttpExceptionFilter())
 
   const configService = app.get<ConfigService<Env, true>>(ConfigService)
+
+  app.setGlobalPrefix('api')
+
+  const config = new DocumentBuilder()
+    .setTitle('NestJS Api')
+    .setDescription('')
+    .setVersion('1.0')
+    .build()
+
+  const document = SwaggerModule.createDocument(app, config)
+  SwaggerModule.setup('docs/v1', app, document)
 
   const port = configService.get('PORT', { infer: true })
 

@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:3333
+@baseUrl = http://localhost:3333/api
 // @authToken = {{authenticate.response.body.access_token}}
 
 # @name create_account
@@ -6,8 +6,8 @@ POST {{baseUrl}}/user
 Content-Type: application/json
 
 {
-  "name": "John Doe243sad44",
-  "email": "john@doe24asd2343.com",
+  "name": "John Doe",
+  "email": "john.doe@brasasdasdil.com",
   "password": "passwordTest123"
 }
 
@@ -17,8 +17,8 @@ POST {{baseUrl}}/pet
 Content-Type: application/json
 
 {
-  "name": "John Doe dog",
-  "type": "sapo23"
+  "name": "Pituxa",
+  "type": "dog"
 }
 
 ###

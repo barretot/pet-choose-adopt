@@ -1,10 +1,20 @@
+import { randomUUID } from 'crypto'
+
 export class Pet {
   id?: string
   name!: string
   type!: string
-  image?: string | null
 
-  constructor({ name, type, image }: Pet) {
-    return Object.assign(this, { name, type, image })
+  constructor(props: Pet) {
+    if (!props.id) {
+      this.id = randomUUID()
+    }
+    Object.assign(this, props)
+  }
+
+  static create(props: Pet): Pet {
+    const user = new Pet(props)
+
+    return user
   }
 }
