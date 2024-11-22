@@ -14,9 +14,7 @@ export class InMemoryUserRepository implements UserRepository {
     return user || null
   }
 
-  async create({ name, email, password }: User): Promise<User> {
-    const user = new User({ name, email, password })
-
-    return this.db.create(user)
+  async create({ name, email, password }: User): Promise<void> {
+    await this.db.create({ name, email, password })
   }
 }

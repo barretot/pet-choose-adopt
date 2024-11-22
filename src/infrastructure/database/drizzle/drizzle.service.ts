@@ -12,7 +12,9 @@ export class DrizzleService implements OnModuleInit, OnModuleDestroy {
 
   constructor(private readonly configService: ConfigService) {
     this.pool = new Pool({
-      connectionString: this.configService.get<string>('DATABASE_URL'),
+      connectionString: this.configService.get<string>('DATABASE_URL', {
+        infer: true,
+      }),
       max: 10,
     })
 
