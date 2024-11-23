@@ -1,8 +1,8 @@
 import { IsEnum, IsNotEmpty, IsString } from 'class-validator'
 
-import { PetType } from '@/domain/enums/pet-type.enum'
+import { PetType } from '@/core/domain/enums/pet-type.enum'
 
-export class CreatePetValidator {
+export class CreatePetDto {
   @IsNotEmpty()
   @IsString()
   name!: string

@@ -8,9 +8,9 @@ import {
 
 import { CreatePetUseCase } from '@/use-cases/pet/create-pet.use-case'
 
+import { CreatePetDto } from '../../dto/pet/create-pet.dto'
 import { HttpBadRequestPetResponse } from '../../swagger/responses/pet/create-pet-error.response'
 import { HttpCreatedPetResponse } from '../../swagger/responses/pet/create-pet.response'
-import { CreatePetValidator } from '../../validators/pet/create-pet.validator'
 
 @ApiTags('pet')
 @Controller('/pet')
@@ -27,8 +27,8 @@ export class CreatePetController {
     description: 'Bad Request',
     type: HttpBadRequestPetResponse,
   })
-  async handle(@Res() res, @Body() body: CreatePetValidator) {
-    await this.createPetUseCase.execute({ ...body })
+  async handle(@Res() res, @Body() body: CreatePetDto) {
+    await this.createPetUseCase.execute(body)
 
     return res
       .status(HttpStatus.CREATED)

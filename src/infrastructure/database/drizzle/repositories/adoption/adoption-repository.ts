@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 
-import { Adoption } from '@/domain/entities/adoption/Adoption'
-import { AdoptionRepository } from '@/domain/repositories/adoption/AdoptionRepository'
+import { Adoption } from '@/core/domain/entities/adoption/Adoption'
+import { AdoptionRepository } from '@/core/domain/repositories/adoption/AdoptionRepository'
 
 import { DrizzleService } from '../../drizzle.service'
 import { adoptions } from '../../schemas'

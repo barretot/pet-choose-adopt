@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 
-import { User } from '@/domain/entities/user/User'
-import { UserRepository } from '@/domain/repositories/user/UserRepository'
+import { User } from '@/core/domain/entities/user/User'
+import { UserRepository } from '@/core/domain/repositories/user/UserRepository'
 
 import { InMemoryDatabaseService } from './in-memory-database.service'
 
@@ -16,5 +16,9 @@ export class InMemoryUserRepository implements UserRepository {
 
   async create({ name, email, password }: User): Promise<void> {
     await this.db.create({ name, email, password })
+  }
+
+  get items(): User[] {
+    return this.db.getItems()
   }
 }

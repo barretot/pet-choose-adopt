@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 
-import { Pet } from '@/domain/entities/pet/Pet'
-import { PetRepository } from '@/domain/repositories/pet/PetRepository'
+import { Pet } from '@/core/domain/entities/pet/Pet'
+import { PetRepository } from '@/core/domain/repositories/pet/PetRepository'
 
 import { DrizzleService } from '../../drizzle.service'
 import { pets } from '../../schemas'

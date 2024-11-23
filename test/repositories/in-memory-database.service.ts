@@ -24,4 +24,8 @@ export class InMemoryDatabaseService<T> {
       this.items[index] = item
     }
   }
+
+  getItems(): T[] {
+    return this.items
+  }
 }

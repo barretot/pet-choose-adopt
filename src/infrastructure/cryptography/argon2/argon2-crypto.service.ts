@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { hash, verify } from 'argon2'
 
-import { CryptographyAdapter } from '@/adapters/cryptography/cryptography-adapter'
+import { CryptographyAdapter } from '@/core/adapters/cryptography/cryptography-adapter'
 import { Env } from '@/infrastructure/env/env'
 
 @Injectable()

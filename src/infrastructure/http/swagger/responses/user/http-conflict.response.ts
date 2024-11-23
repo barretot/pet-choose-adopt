@@ -1,16 +1,16 @@
 import { HttpStatus } from '@nestjs/common'
 import { ApiProperty } from '@nestjs/swagger'
 
-export class HttpBadRequestUserResponse {
-  @ApiProperty({ example: HttpStatus.BAD_REQUEST })
+export class HttpConflictUserResponse {
+  @ApiProperty({ example: HttpStatus.CONFLICT })
   statusCode!: string
 
   @ApiProperty({ example: '/api/user' })
   path!: string
 
-  @ApiProperty({ example: 'User exists' })
+  @ApiProperty({ example: 'Student "john.doe@test.com" already exists.' })
   message!: string
 
-  @ApiProperty({ example: 'Bad Request' })
+  @ApiProperty({ example: 'Conflict' })
   error!: string
 }

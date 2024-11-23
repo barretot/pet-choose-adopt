@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common'
 
-import { AdoptionRepository } from '@/domain/repositories/adoption/AdoptionRepository'
-import { PetRepository } from '@/domain/repositories/pet/PetRepository'
-import { UserRepository } from '@/domain/repositories/user/UserRepository'
+import { AdoptionRepository } from '@/core/domain/repositories/adoption/AdoptionRepository'
+import { PetRepository } from '@/core/domain/repositories/pet/PetRepository'
+import { UserRepository } from '@/core/domain/repositories/user/UserRepository'
 
 import { DrizzleService } from './drizzle/drizzle.service'
 import { DrizzleAdoptionRepository } from './drizzle/repositories/adoption/adoption-repository'

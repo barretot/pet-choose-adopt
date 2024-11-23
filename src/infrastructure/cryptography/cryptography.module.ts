@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 
-import { CryptographyAdapter } from '@/adapters/cryptography/cryptography-adapter'
+import { CryptographyAdapter } from '@/core/adapters/cryptography/cryptography-adapter'
 
 import { Argon2Hasher } from './argon2/argon2-crypto.service'
 

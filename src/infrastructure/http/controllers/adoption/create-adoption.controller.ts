@@ -3,8 +3,8 @@ import { ApiOperation, ApiCreatedResponse, ApiTags } from '@nestjs/swagger'
 
 import { CreateAdoptionUseCase } from '@/use-cases/adoption/create-adoption.use-case'
 
+import { CreateAdoptionDto } from '../../dto/adoption/create-adoption.dto'
 import { HttpCreatedAdoptionResponse } from '../../swagger/responses/adoption/create-pet.response'
-import { CreateAdoptionValidator } from '../../validators/adoption/create-adoption.validator'
 
 @ApiTags('adoptions')
 @Controller('/adoption')
@@ -16,8 +16,8 @@ export class CreateAdoptionController {
     description: 'Adoption Created',
     type: HttpCreatedAdoptionResponse,
   })
-  async handle(@Res() res, @Body() body: CreateAdoptionValidator) {
-    await this.createAdoptionUseCase.execute({ ...body })
+  async handle(@Res() res, @Body() body: CreateAdoptionDto) {
+    await this.createAdoptionUseCase.execute(body)
 
     return res
       .status(HttpStatus.CREATED)
