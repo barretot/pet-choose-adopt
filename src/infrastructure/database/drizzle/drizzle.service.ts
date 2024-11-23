@@ -1,4 +1,9 @@
-import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common'
+import {
+  Injectable,
+  Logger,
+  OnModuleDestroy,
+  OnModuleInit,
+} from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { drizzle, NodePgDatabase } from 'drizzle-orm/node-postgres'
 import { Pool } from 'pg'
@@ -22,21 +27,13 @@ export class DrizzleService implements OnModuleInit, OnModuleDestroy {
   }
 
   async onModuleInit() {
-    try {
-      await this.pool.connect()
-      console.log('Database connected successfully')
-    } catch (error) {
-      console.error('Error connecting to the database:', error)
-      throw error
-    }
+    await this.pool.connect()
+    Logger.log('Database connected successfully')
   }
 
   async onModuleDestroy() {
-    try {
-      await this.pool.end()
-      console.log('Database connection closed')
-    } catch (error) {
-      console.error('Error disconnecting from the database:', error)
-    }
+    await this.pool.end()
+
+    Logger.log('Database connection closed')
   }
 }

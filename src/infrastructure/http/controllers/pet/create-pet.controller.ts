@@ -18,7 +18,7 @@ export class CreatePetController {
   constructor(private createPetUseCase: CreatePetUseCase) {}
 
   @Post()
-  @ApiOperation({ summary: 'Create user from dWb' })
+  @ApiOperation({ summary: 'Create user from db' })
   @ApiCreatedResponse({
     description: 'Pet Created',
     type: HttpCreatedPetResponse,

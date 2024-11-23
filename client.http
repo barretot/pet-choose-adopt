@@ -22,6 +22,16 @@ Content-Type: application/json
 }
 
 ###
+# @name create-adoption
+POST {{baseUrl}}/adoption
+Content-Type: application/json
+
+{
+  "userId": "db484282-84bd-4c68-8db2-5f3541c091ae",
+  "petId": "c9ede3b6-eeed-4eb3-8e6a-036a459460a0"
+}
+
+###
 # @name authenticate
 POST {{baseUrl}}/sessions
 Content-Type: application/json

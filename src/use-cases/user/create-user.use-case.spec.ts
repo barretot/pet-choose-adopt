@@ -1,4 +1,3 @@
-import { CryptographyAdapter } from '@/adapters/cryptography/cryptography-adapter'
 import { User } from '@/domain/entities/user/User'
 import { CryptographyAdapterMock } from 'test/cryptography/cryptography-adapter.mock'
 import { InMemoryDatabaseService } from 'test/repositories/in-memory-database.service'
@@ -9,7 +8,7 @@ import { CreateUserUseCase } from './create-user.use-case'
 let inMemoryUserRepository: InMemoryUserRepository
 let sut: CreateUserUseCase
 let inMemoryDataBaseService: InMemoryDatabaseService<User>
-let cryptographyAdapter: CryptographyAdapter
+let cryptographyAdapter: CryptographyAdapterMock
 
 describe('Create user Use Case', () => {
   beforeEach(() => {

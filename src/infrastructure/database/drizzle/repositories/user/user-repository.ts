@@ -18,7 +18,6 @@ export class DrizzleUserRepository implements UserRepository {
       .where(eq(users.email, email))
       .limit(1)
 
-    // Retorna null se não encontrar
     if (result.length === 0) {
       return null
     }

@@ -1,0 +1,1 @@
+ALTER TABLE "pets" DROP CONSTRAINT "pets_pet_owner_id_unique";
