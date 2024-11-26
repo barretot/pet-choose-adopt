@@ -4,27 +4,27 @@ import { AdoptionRepository } from '@/core/domain/repositories/adoption/Adoption
 import { PetRepository } from '@/core/domain/repositories/pet/PetRepository'
 import { UserRepository } from '@/core/domain/repositories/user/UserRepository'
 
-import { DrizzleService } from './drizzle/drizzle.service'
-import { DrizzleAdoptionRepository } from './drizzle/repositories/adoption/adoption-repository'
-import { DrizzlePetRepository } from './drizzle/repositories/pet/pet-repository'
-import { DrizzleUserRepository } from './drizzle/repositories/user/user-repository'
+import { PrismaService } from './prisma/prisma.service'
+import { PrismaAdoptionRepository } from './prisma/repositories/adoption/adoption-repository'
+import { PrismaPetRepository } from './prisma/repositories/pet/pet-repository'
+import { PrismaUserRepository } from './prisma/repositories/user/user-repository'
 
 @Module({
   providers: [
-    DrizzleService,
+    PrismaService,
     {
       provide: UserRepository,
-      useClass: DrizzleUserRepository,
+      useClass: PrismaUserRepository,
     },
     {
       provide: PetRepository,
-      useClass: DrizzlePetRepository,
+      useClass: PrismaPetRepository,
     },
     {
       provide: AdoptionRepository,
-      useClass: DrizzleAdoptionRepository,
+      useClass: PrismaAdoptionRepository,
     },
   ],
-  exports: [DrizzleService, UserRepository, PetRepository, AdoptionRepository],
+  exports: [PrismaService, UserRepository, PetRepository, AdoptionRepository],
 })
 export class DatabaseModule {}

@@ -6,8 +6,8 @@ POST {{baseUrl}}/user
 Content-Type: application/json
 
 {
-  "name": "John Barretadao",
-  "email": "john.barretoaasdasdd@test.com",
+  "name": "John Doe",
+  "email": "john.doe@test.com",
   "password": "passwordTest123"
 }
 
@@ -17,8 +17,8 @@ POST {{baseUrl}}/pet
 Content-Type: application/json
 
 {
-  "name": "Pituxa",
-  "type": "cat"
+  "name": "Nina",
+  "type": "CAT"
 }
 
 ###
@@ -27,8 +27,8 @@ POST {{baseUrl}}/adoption
 Content-Type: application/json
 
 {
-  "userId": "db484282-84bd-4c68-8db2-5f3541c091ae",
-  "petId": "c9ede3b6-eeed-4eb3-8e6a-036a459460a0"
+  "userId": "d3896795-8d8b-437a-bafb-b8d5d7b75a4b",
+  "petId": "f1e64533-033a-4f85-9171-308fc8715c3a"
 }
 
 ###

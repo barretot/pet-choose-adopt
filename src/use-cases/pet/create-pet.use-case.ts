@@ -24,21 +24,21 @@ export class CreatePetUseCase {
     name,
     type,
   }: CreatePetDto): Promise<CreatePetUseCaseResponse> {
-    const pet = Pet.create({
-      name,
-      type,
-    })
-
     const petNameAlreadyExists = await this.petRepository.getPetByType(
       name,
       type,
     )
 
-    if (petNameAlreadyExists) {
+    if (petNameAlreadyExists && petNameAlreadyExists.length > 0) {
       return left(new PetNameAlreadyExistsException(name, type))
     }
 
-    await this.petRepository.create({ ...pet })
+    const pet = Pet.create({
+      name,
+      type,
+    })
+
+    await this.petRepository.create(pet)
 
     return right({
       pet,
