@@ -6,7 +6,6 @@ import {
   HttpStatus,
   Post,
   Res,
-  UseInterceptors,
 } from '@nestjs/common'
 import {
   ApiBadRequestResponse,
@@ -44,10 +43,10 @@ export class CreateUserController {
     type: HttpBadRequestUserResponse,
   })
   async handle(@Res() res, @Body() body: CreateUserDto) {
-    const result = await this.createUserUseCase.execute(body)
+    const response = await this.createUserUseCase.execute(body)
 
-    if (result.isLeft()) {
-      const error = result.value
+    if (response.isLeft()) {
+      const error = response.value
 
       switch (error.constructor) {
         case UserAlreadyExistsException:

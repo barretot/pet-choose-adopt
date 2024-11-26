@@ -18,7 +18,7 @@ Content-Type: application/json
 
 {
   "name": "Pituxa",
-  "type": "dog"
+  "type": "cat"
 }
 
 ###

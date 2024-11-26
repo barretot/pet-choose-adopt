@@ -1,4 +1,11 @@
-import { Body, Controller, HttpStatus, Post, Res } from '@nestjs/common'
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  HttpStatus,
+  Post,
+  Res,
+} from '@nestjs/common'
 import {
   ApiBadRequestResponse,
   ApiCreatedResponse,
@@ -28,7 +35,13 @@ export class CreatePetController {
     type: HttpBadRequestPetResponse,
   })
   async handle(@Res() res, @Body() body: CreatePetDto) {
-    await this.createPetUseCase.execute(body)
+    const response = await this.createPetUseCase.execute(body)
+
+    if (response.isLeft()) {
+      const error = response.value
+
+      throw new BadRequestException(error.message)
+    }
 
     return res
       .status(HttpStatus.CREATED)

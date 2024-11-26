@@ -7,6 +7,6 @@ export class CreatePetDto {
   @IsString()
   name!: string
 
-  @IsEnum(PetType, { message: 'Type only cat or dog' })
+  @IsEnum(PetType, { message: 'Type only cat, dog or other.' })
   type!: string
 }
