@@ -12,26 +12,6 @@ Content-Type: application/json
 }
 
 ###
-# @name create_pet
-POST {{baseUrl}}/pet
-Content-Type: application/json
-
-{
-  "name": "Pituxa",
-  "type": "DOG"
-}
-
-###
-# @name create-adoption
-POST {{baseUrl}}/adoption
-Content-Type: application/json
-Authorization: Bearer {{authToken}}
-
-{
-  "petId": "48fb2c83-672d-4ff5-8b81-3309495d7679"
-}
-
-###
 # @name authenticate
 POST {{baseUrl}}/sessions
 Content-Type: application/json
@@ -41,19 +21,22 @@ Content-Type: application/json
   "password": "passwordTest123"
 }
 
-# ###
-# # @name create_question
-# POST {{baseUrl}}/questions
-# Content-Type: application/json
-# Authorization: Bearer {{authToken}}
+###
+# @name create_pet
+POST {{baseUrl}}/pet
+Content-Type: application/json
 
-# {
-#   "title": "New question 2",
-#   "content": "Content question"
-# }
+{
+  "name": "Dora",
+  "type": "CAT"
+}
 
-# ###
-# # @name get_question
-# GET {{baseUrl}}/questions?page=2
-# Content-Type: application/json
-# Authorization: Bearer {{authToken}}
+###
+# @name create-adoption
+POST {{baseUrl}}/adoption
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "petId": "bcf740e7-569f-4beb-9275-f5881c6334a7"
+}

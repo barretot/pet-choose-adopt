@@ -7,7 +7,12 @@ import {
   Res,
   UseGuards,
 } from '@nestjs/common'
-import { ApiOperation, ApiCreatedResponse, ApiTags } from '@nestjs/swagger'
+import {
+  ApiOperation,
+  ApiCreatedResponse,
+  ApiTags,
+  ApiBearerAuth,
+} from '@nestjs/swagger'
 
 import { CurrentUser } from '@/infrastructure/auth/jwt/current-user.decorator'
 import { TokenSchema as UserPayload } from '@/infrastructure/auth/jwt/token-schema'
@@ -18,6 +23,7 @@ import { JwtAuthGuard } from '../../guards/jwt-auth.guard'
 import { HttpCreatedAdoptionResponse } from '../../swagger/responses/adoption/create-pet.response'
 
 @ApiTags('adoptions')
+@ApiBearerAuth()
 @Controller('/adoption')
 export class CreateAdoptionController {
   constructor(private createAdoptionUseCase: CreateAdoptionUseCase) {}
