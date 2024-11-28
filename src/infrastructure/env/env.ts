@@ -6,6 +6,7 @@ import {
   IsOptional,
   Matches,
   IsNotEmpty,
+  IsIn,
 } from 'class-validator'
 
 export class Env {
@@ -16,13 +17,9 @@ export class Env {
   @IsInt()
   @Min(2)
   @Max(2)
+  @IsIn([0, 1, 2])
   @IsNotEmpty()
-  readonly ARGON2_TYPE!: number
-
-  @IsInt()
-  @Min(1)
-  @IsNotEmpty()
-  readonly ARGON2_TIME_COST!: number
+  readonly ARGON2_TYPE!: 0 | 1 | 2
 
   @IsInt()
   readonly PORT: number = 3333

@@ -8,7 +8,7 @@ export class HttpConflictUserResponse {
   @ApiProperty({ example: '/api/user' })
   path!: string
 
-  @ApiProperty({ example: 'Student "john.doe@test.com" already exists.' })
+  @ApiProperty({ example: 'User "john.doe@test.com" already exists.' })
   message!: string
 
   @ApiProperty({ example: 'Conflict' })
