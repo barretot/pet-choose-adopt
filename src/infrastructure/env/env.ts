@@ -31,4 +31,12 @@ export class Env {
   @IsString()
   @Matches(/^postgresql:\/\/\S+$/) // Valida strings no formato de conexão PostgreSQL
   readonly DATABASE_URL!: string
+
+  @IsNotEmpty()
+  @IsString()
+  readonly JWT_PRIVATE_KEY!: string
+
+  @IsNotEmpty()
+  @IsString()
+  readonly JWT_PUBLIC_KEY!: string
 }

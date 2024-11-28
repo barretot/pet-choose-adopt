@@ -14,7 +14,7 @@ interface CreateUserUseCaseRequest {
 }
 
 type CreateUserUseCaseResponse = Either<
-  UserAlreadyExistsException,
+  UserAlreadyExistsException /* | OthersErrors */,
   { user: User }
 >
 

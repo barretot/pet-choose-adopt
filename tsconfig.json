@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
+    "lib": ["es2023"],
     "module": "node16",
+    "target": "es2022",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "ES2022",
     "sourceMap": true,
     "outDir": "./dist",
     "incremental": true,
@@ -17,6 +18,7 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
+    "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
       "@/*": [

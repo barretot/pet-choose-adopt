@@ -8,6 +8,19 @@ import { PrismaService } from '../../prisma.service'
 @Injectable()
 export class PrismaPetRepository implements PetRepository {
   constructor(private db: PrismaService) {}
+  async getById(id: string): Promise<Pet | null> {
+    const pet = this.db.pet.findUnique({
+      where: {
+        id,
+      },
+    })
+
+    if (!pet) {
+      return null
+    }
+
+    return pet
+  }
 
   async create({ name, type }: Pet): Promise<void> {
     await this.db.pet.create({

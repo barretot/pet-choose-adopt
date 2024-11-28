@@ -28,12 +28,12 @@ model Pet {
 
 model Adoption {
   id        String   @id @default(uuid())
-  petId     String?  @db.Text
-  userId    String?  @db.Text
+  petId     String   @db.Text
+  userId    String   @db.Text
   createdAt DateTime @default(now())
 
-  pet  Pet?  @relation(fields: [petId], references: [id], onDelete: SetNull)
-  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  pet  Pet?  @relation(fields: [petId], references: [id])
+  user User? @relation(fields: [userId], references: [id])
 
   @@map("adoptions")
 }

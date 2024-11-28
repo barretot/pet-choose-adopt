@@ -1,6 +1,6 @@
 import { CreatePetUseCase } from '@/use-cases/pet/create-pet.use-case'
 import { PetNameAlreadyExistsException } from '@/use-cases/pet/errors/pet-name-already-exists-exception'
-import { PetBuilder } from 'test/builders/pet-builder'
+import { PetBuilder } from 'test/use-cases/builders/pet-builder'
 
 describe('Pet Use Case', () => {
   it('should return success when creating a pet', async () => {
